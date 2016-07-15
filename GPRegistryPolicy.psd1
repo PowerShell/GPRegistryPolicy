@@ -6,7 +6,7 @@ RootModule = 'GPRegistryPolicy.psm1'
 #DscResourcesToExport = ''
 
 # Version number of this module.
-ModuleVersion = '0.1.1'
+ModuleVersion = '0.2'
 
 # ID used to uniquely identify this module
 GUID = 'dad09e6f-22bf-4f90-94ba-4d1505c6b8ea'
@@ -26,11 +26,17 @@ Description = 'Module with cmdlets to work with GP Registry Policy .pol files'
 # Required Modules - Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(@{ModuleName="GPRegistryPolicyParser";ModuleVersion="0.1.1";Guid="136973e7-64da-494b-bf2d-38d4564bb8f5"})
 
+# Nested Modules - Modules that must be imported into the global environment prior to importing this module
+NestedModules = @('GPRegistryPolicyResource.psd1')
+
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
+
+# Name of the DSC resources to export in this module
+DscResourcesToExport = @('RegistryPolicy')
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
