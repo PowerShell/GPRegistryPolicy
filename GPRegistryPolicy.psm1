@@ -109,7 +109,6 @@ function Apply-GPRegistryPolicy
 
         if ( $KeyOnly )
         {
-            Write-Host $LocalizedData.OnlyCreatingKey
             return
         }
 
@@ -245,7 +244,6 @@ function Apply-GPRegistryPolicy
                 $data = $RegistryPolicy.ValueData
             }
         
-            Write-Host "Setting Value '$($RegistryPolicy.ValueName)' of type '$($RegistryPolicy.ValueType)' to '$($data)'"
             $key.SetValue($RegistryPolicy.ValueName, $data, $RegistryPolicy.ValueType)
         }
     }
@@ -368,7 +366,6 @@ function Import-GPRegistryPolicy
 
     foreach ($rp in $RegistryPolicies)
     {
-        Write-Host "Importting" $rp.KeyName
         Apply-GPRegistryPolicy -RegistryPolicy $rp @Parameters
     }
 }
