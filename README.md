@@ -156,3 +156,11 @@ C:\PS> Test-GPRegistryPolicy -Path "C:\Registry.pol" -LocalMachine -Entries @('S
 ```
 
 ---
+
+# Registry Policy DSC Resource
+
+This resource will allow you to synchronize registry settings with a .POL file which contains the registry keys enacted by Group Policy. The primary intent of this resourceis to enable enforcing security policy settings on Nano Server, but this method will also work on Windows Server 2016.
+
+| Parameter Name | Description                                                                               | 
+| ---            | ---                                                                                       |
+| Path           | Specifies the path to the .pol file containing the registry keys enacted by Group Policy. |
