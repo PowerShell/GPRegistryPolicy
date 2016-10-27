@@ -22,7 +22,7 @@ data LocalizedData
 }
 
 Import-LocalizedData  LocalizedData -filename GPRegistryPolicy.Strings.psd1
-Import-Module "GPRegistryPolicyParser"
+Import-Module "GPRegistryPolicyParser" -DisableNameChecking
 
 $script:SystemAndAdminAccounts = @(
     'NT AUTHORITY\SYSTEM',
