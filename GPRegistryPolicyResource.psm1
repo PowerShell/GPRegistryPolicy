@@ -10,11 +10,6 @@ class RegistryPolicy {
     [DscProperty(Key)]
     [String] $Path;
 
-    RegistryPolicy()
-    {
-        Import-Module -Name GPRegistryPolicy
-    }
-
     [void] Set()
     {
         Import-GPRegistryPolicy -Path $this.Path -LocalMachine
