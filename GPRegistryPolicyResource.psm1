@@ -10,6 +10,9 @@ class RegistryPolicy {
     [DscProperty(Key)]
     [String] $Path;
 
+    [DscProperty()]
+    [String[]] $Entries = @("Software\Policies");
+
     [void] Set()
     {
         Import-GPRegistryPolicy -Path $this.Path -LocalMachine
@@ -19,7 +22,7 @@ class RegistryPolicy {
     {
         [bool] $Result = $false
 
-        $Result = Test-GPRegistryPolicy -Path $this.Path -LocalMachine
+        $Result = Test-GPRegistryPolicy -Path $this.Path -LocalMachine -Entries $this.Entries
 
         return $Result
     }
@@ -27,6 +30,7 @@ class RegistryPolicy {
     [RegistryPolicy] Get()
     {
         $this.Path = $null
+        $this.Entries = @("Software\Policies");
 
         return $this
     }
