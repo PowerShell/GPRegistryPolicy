@@ -24,7 +24,7 @@ Copyright = '(c) 2016 Microsoft. All rights reserved.'
 Description = 'Module with cmdlets to work with GP Registry Policy .pol files'
 
 # Required Modules - Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName="GPRegistryPolicyParser";ModuleVersion="0.1.1";Guid="136973e7-64da-494b-bf2d-38d4564bb8f5"})
+RequiredModules = @(@{ModuleName="GPRegistryPolicyParser";ModuleVersion="0.2";Guid="136973e7-64da-494b-bf2d-38d4564bb8f5"})
 
 # Nested Modules - Modules that must be imported into the global environment prior to importing this module
 NestedModules = @('GPRegistryPolicyResource.psd1')
