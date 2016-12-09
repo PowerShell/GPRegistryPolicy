@@ -33,6 +33,10 @@ $script:WellKnownSids = @(
     'APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES'
 )
 
+$script:DefaultEntries = @(
+    "Software\Policies"
+)
+
 <# 
 .SYNOPSIS
 Applies a registry policy.
@@ -366,7 +370,10 @@ function Import-GPRegistryPolicy
 
     foreach ($rp in $RegistryPolicies)
     {
-        Apply-GPRegistryPolicy -RegistryPolicy $rp @Parameters
+        if ($rp -ne $null)
+        {
+            Apply-GPRegistryPolicy -RegistryPolicy $rp @Parameters
+        }
     }
 }
 
@@ -430,7 +437,7 @@ function Export-GPRegistryPolicy
         
 		[Parameter(Position=1)]
         [string[]]
-        $Entries = @("Software\Policies"),
+        $Entries = $script:DefaultEntries,
 
 		[Parameter(Mandatory = $true, ParameterSetName = 'LocalMachine')]
         [switch]
@@ -536,7 +543,7 @@ function Test-GPRegistryPolicy
         
 		[Parameter(Position=1)]
         [string[]]
-        $Entries = @("Software\Policies"),
+        $Entries = $script:DefaultEntries,
 
 		[Parameter(ParameterSetName = 'LocalMachine')]
         [switch]
