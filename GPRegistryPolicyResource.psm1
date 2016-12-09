@@ -26,7 +26,7 @@ class RegistryPolicy {
 
     [RegistryPolicy] Get()
     {
-        $this.Username = $null
+        $this.Path = $null
 
         return $this
     }
