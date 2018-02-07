@@ -50,7 +50,7 @@ Reads a .pol file containing group policy registry entries and applies its conte
 The division to which the contents must be applied to has to be defined using one of the three available
 options for **LocalMachine**, **CurrentUser**, or **Username**.
 
-###Syntax##
+### Syntax
 ```
 Import-GPRegistryPolicy [-Path] <string> [-LocalMachine] [-KeyPrefix <string>]  [<CommonParameters>]
 
@@ -67,7 +67,7 @@ Import-GPRegistryPolicy [-Path] <string> [-Username <string>] [-KeyPrefix <strin
 | Username       | A string that selects the target user in the Users registry division.                  |
 | KeyPrefix      | A prefix that will be prepended to the given key.                                      |
 
-#####Example####
+### Example
 ```
 C:\PS> Import-GPRegistryPolicy -Path "C:\Registry.pol" -LocalMachine
 
@@ -88,7 +88,7 @@ entries are read is 'Software\Policies'. However, if Entries are assinged in inp
 will export those instead. The division from which the contents must be read has to be defined using one
 of the three available options for **LocalMachine**, **CurrentUser**, or **Username**.
 
-###Syntax##
+### Syntax
 ```
 Export-GPRegistryPolicy [-Path] <string> [[-Entries] <string[]>] -LocalMachine  [<CommonParameters>]
 
@@ -105,7 +105,7 @@ Export-GPRegistryPolicy [-Path] <string> [[-Entries] <string[]>] [-Username <str
 | Username       | A string that selects the target user in the Users registry division.                  |
 | Entries        | Specifies the list of registry keys to be exported. The default value is set to 'Software\Policies'. |
 
-#####Example####
+### Example
 ```
 C:\PS> Export-GPRegistryPolicy -Path "C:\Registry.pol" -LocalMachine
    
@@ -125,7 +125,7 @@ Reads a .pol file containing group policy registry entries and tests its content
 The division to which the contents must be applied has to be defined using one of the three available options 
 for **LocalMachine**, **CurrentUser**, or **Username**.
 
-###Syntax##
+### Syntax
 ```
 Test-GPRegistryPolicy [-Path] <string> [[-Entries] <string[]>] [-LocalMachine]  [<CommonParameters>]
 
@@ -142,7 +142,7 @@ Test-GPRegistryPolicy [-Path] <string> [[-Entries] <string[]>] [-Username <strin
 | Username       | A string that selects the target user in the Users registry division.                  |
 | Entries        | Specifies the list of registry keys to be exported. The default value is set to 'Software\Policies'. |
 
-#####Example####
+### Example
 ```
 C:\PS> Test-GPRegistryPolicy -Path "C:\Registry.pol" -LocalMachine
    
