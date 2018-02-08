@@ -22,7 +22,7 @@ data LocalizedData
 }
 
 Import-LocalizedData  LocalizedData -filename GPRegistryPolicy.Strings.psd1
-Import-Module "GPRegistryPolicyParser" -DisableNameChecking
+Import-Module "$PSScriptRoot\GPRegistryPolicyParser.psm1" -DisableNameChecking
 
 $script:SystemAndAdminAccounts = @(
     'NT AUTHORITY\SYSTEM',
@@ -665,4 +665,6 @@ Function Assert
     }
 }
 
-Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy'
+#Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy'
+#Export-ModuleMember -Function 'Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'
+Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy','Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'
