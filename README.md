@@ -159,7 +159,7 @@ C:\PS> Test-GPRegistryPolicy -Path "C:\Registry.pol" -LocalMachine -Entries @('S
 
 # Registry Policy Parser Cmdlets
 
-These cmdlets will allow you to work with .POL files, which contain the registry keys enacted by Group Policy. The primary intent of these cmdlets is to enable enforcing security policy settings on Nano Server, but this method will also work on Windows Server 2016. These cmdlets are used internally by *GPRegistryModule*.
+These cmdlets will allow you to work with .POL files, which contain the registry keys enacted by Group Policy. The primary intent of these cmdlets is to enable enforcing security policy settings on Nano Server, but this method will also work on Windows Server 2016. These cmdlets are used internally by *GPRegistryPolicy* Module.
 
 ---
 
