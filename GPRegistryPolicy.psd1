@@ -27,7 +27,7 @@ Description = 'Module with cmdlets to work with GP Registry Policy .pol files'
 RequiredModules = @()
 
 # Nested Modules - Modules that must be imported into the global environment prior to importing this module
-NestedModules = @('GPRegistryPolicyResource.psd1')
+NestedModules = @('GPRegistryPolicyResource','GpRegistryPolicyParser')
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
@@ -59,5 +59,6 @@ PrivateData = @{
 
 } # End of PrivateData hashtable
 
-FunctionsToExport = @('Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy','Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies')
+FunctionsToExport = @('Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy','Import-PolFile','Read-RegistryPolicies','New-RegistrySettingsEntry','New-GPRegistryPolicyFile','Add-RegistryPolicies')
+AliasesToExport = @('Append-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Parse-PolFile')
 }
