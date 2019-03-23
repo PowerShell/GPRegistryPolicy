@@ -163,12 +163,12 @@ These cmdlets will allow you to work with .POL files, which contain the registry
 
 ---
 
-## Parse-PolFile
+## Import-PolFile
 Reads a .pol file containing group policy registry entries and returns an array of objects each containing a registry setting.
 
 ### Syntax
 ```
-Parse-PolFile [-Path <string>]  [<CommonParameters>]
+Import-PolFile [-Path <string>]  [<CommonParameters>]
 ```
 
 | Parameter Name | Description                                                                            | 
@@ -177,7 +177,7 @@ Parse-PolFile [-Path <string>]  [<CommonParameters>]
 
 ### Example
 ```
-C:\PS> $RegistrySettings = Parse-PolFile -Path "C:\Registry.pol"
+C:\PS> $RegistrySettings = Import-PolFile -Path "C:\Registry.pol"
 ```
 
 ---
@@ -206,13 +206,13 @@ C:\PS> $RegistrySettings = Read-RegistryPolicies -Divistion 'LocalMachine' -Entr
 
 ---
 
-## Create-RegistrySettingsEntry
+## New-RegistrySettingsEntry
 Creates a .pol file entry byte array from a GPRegistryPolicy instance. This entry can be written
 in a .pol file later.
 
 ### Syntax
 ```
-$RegistrySettings = Create-RegistrySettingsEntry [-RegistryPolicy <GPRegistryPolicy[]>
+$RegistrySettings = New-RegistrySettingsEntry [-RegistryPolicy <GPRegistryPolicy[]>
 ```
 
 | Parameter Name | Description                                                                                          | 
@@ -221,17 +221,17 @@ $RegistrySettings = Create-RegistrySettingsEntry [-RegistryPolicy <GPRegistryPol
 
 ### Example
 ```
-C:\PS> $Entry = Create-RegistrySettingsEntry -RegistryPolicy $GPRegistryPolicyInstance
+C:\PS> $Entry = New-RegistrySettingsEntry -RegistryPolicy $GPRegistryPolicyInstance
 ```
 
 ---
 
-## Append-RegistryPolicies
+## Add-RegistryPolicies
 Appends an array of registry policy entries to a file. The file must alreay have a valid header.
 
 ### Syntax
 ```
-Append-RegistryPolicies [-RegistryPolicies <GPRegistryPolicy[]>] [-Path <string>]
+Add-RegistryPolicies [-RegistryPolicies <GPRegistryPolicy[]>] [-Path <string>]
 ```
 
 | Parameter Name   | Description                                                                                          | 
@@ -241,7 +241,7 @@ Append-RegistryPolicies [-RegistryPolicies <GPRegistryPolicy[]>] [-Path <string>
 
 ### Example
 ```
-C:\PS> Append-RegistryPolicies -RegistryPolicies $RegistryPoliciesInput -Path "C:\Registry.pol"
+C:\PS> Add-RegistryPolicies -RegistryPolicies $RegistryPoliciesInput -Path "C:\Registry.pol"
 ```
 
 ---

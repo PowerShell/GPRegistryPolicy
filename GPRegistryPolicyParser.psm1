@@ -169,10 +169,11 @@ Reads a .pol file, parses it and returns an array of Group Policy registry setti
 Specifies the path to the .pol file.
 
 .EXAMPLE
-C:\PS> Parse-PolFile -Path "C:\Registry.pol"
+C:\PS> Import-PolFile -Path "C:\Registry.pol"
 #>
-Function Parse-PolFile
+Function Import-PolFile
 {
+    [Alias('Parse-PolFile')]
     [OutputType([Array])]
     param (
         [Parameter(Mandatory=$true,Position=0)]
@@ -440,8 +441,9 @@ in a .pol file later.
 .PARAMETER RegistryPolicy
 Specifies the registry policy entry.
 #>
-Function Create-RegistrySettingsEntry
+Function New-RegistrySettingsEntry
 {
+    [Alias('Create-RegistrySettingsEntry')]
     [OutputType([Array])]
     param (
 		[Parameter(Mandatory = $true)]
@@ -528,8 +530,9 @@ An array of registry policy entries.
 .PARAMETER Path
 Path to a file (.pol extension)
 #>
-Function Append-RegistryPolicies
+Function Add-RegistryPolicies
 {
+    [alias('Append-RegistryPolicies')]
     param (
 		[Parameter(Mandatory = $true)]
         [GPRegistryPolicy[]]
@@ -543,7 +546,7 @@ Function Append-RegistryPolicies
         
     foreach ($rp in $RegistryPolicies)
     {
-        [Byte[]] $Entry = Create-RegistrySettingsEntry -RegistryPolicy $rp
+        [Byte[]] $Entry = New-RegistrySettingsEntry -RegistryPolicy $rp
         $Entry | Add-Content -Path $Path -Encoding Byte
     }
 }
@@ -588,8 +591,9 @@ Creates a file and initializes it with Group Policy Registry file format signatu
 .PARAMETER Path
 Path to a file (.pol extension)
 #>
-Function Create-GPRegistryPolicyFile
+Function New-GPRegistryPolicyFile
 {
+    [Alias('Create-GPRegistryPolicyFile')]
     param (
         [Parameter(Mandatory)]
         $Path
@@ -746,5 +750,3 @@ Function Convert-StringToInt
 
     return $result
 }
-
-Export-ModuleMember -Function 'Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'

@@ -22,7 +22,6 @@ data LocalizedData
 }
 
 Import-LocalizedData  LocalizedData -filename GPRegistryPolicy.Strings.psd1
-Import-Module "$PSScriptRoot\GPRegistryPolicyParser.psm1" -DisableNameChecking
 
 $script:SystemAndAdminAccounts = @(
     'NT AUTHORITY\SYSTEM',
@@ -366,7 +365,7 @@ function Import-GPRegistryPolicy
         $Parameters.Add('KeyPrefix', $KeyPrefix)
     }
 
-    $RegistryPolicies = Parse-PolFile -Path $Path
+    $RegistryPolicies = Import-PolFile -Path $Path
 
     foreach ($rp in $RegistryPolicies)
     {
@@ -480,9 +479,9 @@ function Export-GPRegistryPolicy
 
     $RegistryPolicies = Read-RegistryPolicies -Entries $Entries -Division $Division
     
-    Create-GPRegistryPolicyFile -Path $Path
+    New-GPRegistryPolicyFile -Path $Path
 
-    Append-RegistryPolicies -RegistryPolicies $RegistryPolicies -Path $Path
+    Add-RegistryPolicies -RegistryPolicies $RegistryPolicies -Path $Path
 }
 
 
@@ -598,8 +597,8 @@ function Test-GPRegistryPolicy
     # Export the the temp registry key into a file to get expected settings
     Export-GPRegistryPolicy -Path $tempFileExpected -Entries @($tempRegKey) @Parameters
     
-    $ActualRP = Parse-PolFile -Path $tempFileActual
-    $ExpectedRP = Parse-PolFile -Path $tempFileExpected
+    $ActualRP = Import-PolFile -Path $tempFileActual
+    $ExpectedRP = Import-PolFile -Path $tempFileExpected
     
     $ActualRPInJSON = ConvertTo-Json -InputObject $ActualRP
     $ExpectedRPInJSON = ConvertTo-Json -InputObject $ExpectedRP
@@ -664,7 +663,3 @@ Function Assert
         throw $ErrorMessage;
     }
 }
-
-#Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy'
-#Export-ModuleMember -Function 'Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'
-Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy','Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'

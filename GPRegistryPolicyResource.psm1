@@ -35,5 +35,3 @@ class RegistryPolicy {
         return $this
     }
 }
-
-Export-ModuleMember -Function ''
