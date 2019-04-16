@@ -184,7 +184,12 @@ Function Parse-PolFile
     $index = 0
 
     [string] $policyContents = Get-Content $Path -Raw
-    [byte[]] $policyContentInBytes = Get-Content $Path -Raw -Encoding Byte
+
+    if ($psversiontable.PSVersion.Major -lt 6) {
+        [byte[]] $policyContentInBytes = Get-Content $Path -Raw -Encoding Byte
+    } else {
+        [byte[]] $policyContentInBytes = Get-Content $Path -AsByteStream
+    }
 
     # 4 bytes are the signature PReg
     $signature = [System.Text.Encoding]::ASCII.GetString($policyContents[0..3])
