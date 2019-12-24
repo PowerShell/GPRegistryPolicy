@@ -747,4 +747,4 @@ Function Convert-StringToInt
     return $result
 }
 
-Export-ModuleMember -Function 'Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'
+Export-ModuleMember -Function 'Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies','New-GPRegistryPolicy'

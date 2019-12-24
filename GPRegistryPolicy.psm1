@@ -667,4 +667,4 @@ Function Assert
 
 #Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy'
 #Export-ModuleMember -Function 'Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'
-Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy','Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies'
+Export-ModuleMember -Function 'Import-GPRegistryPolicy','Export-GPRegistryPolicy','Test-GPRegistryPolicy','Parse-PolFile','Read-RegistryPolicies','Create-RegistrySettingsEntry','Create-GPRegistryPolicyFile','Append-RegistryPolicies','New-GPRegistryPolicy'
